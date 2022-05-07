@@ -1,6 +1,6 @@
 from unittest import TestCase
 from unittest.mock import Mock
-from parser.report_friends_info import FriendsReport
+from vk.report_friends_info import FriendsReport
 
 
 class FriendsReportTest(TestCase):

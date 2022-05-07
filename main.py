@@ -1,7 +1,7 @@
 import vk_api
 import click
-from parser.report_friends_info import FriendsReport
-from parser.api_wrapper import VkApiWrapper
+from vk.report_friends_info import FriendsReport
+from vk.api_wrapper import VkApiWrapper
 from writer.writer_json import WriterJson
 from writer.writer_csv_tsv import WriterCsvTsv
 
@@ -29,6 +29,7 @@ def main(access_token, user_id, format_file, path) -> None:
     elif format_file == 'json':
         writer = WriterJson(4)
     writer.write(f'{path}report{user_id}.{format_file}', data)
+    print(f'Report written to {path}report{user_id}.{format_file}')
 
 
 if __name__ == '__main__':

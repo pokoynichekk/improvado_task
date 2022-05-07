@@ -1,4 +1,4 @@
-from report import Report
+from vk.report import Report
 
 
 class FriendsReport(Report):

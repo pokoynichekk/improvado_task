@@ -1,5 +1,5 @@
 import json
-from writer import Writer
+from writer.writer import Writer
 
 
 class WriterJson(Writer):

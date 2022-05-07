@@ -1,7 +1,8 @@
-from api_wrapper import VkApiWrapper
+from vk.api_wrapper import VkApiWrapper
+from abc import ABC
 
 
-class Report:
+class Report(ABC):
     def __init__(self, api: VkApiWrapper):
         self.api = api
 
