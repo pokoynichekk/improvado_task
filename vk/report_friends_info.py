@@ -17,10 +17,15 @@ class FriendsReport(Report):
         return temp
 
     def get_sex(self, temp: dict, info: dict) -> dict:
-        if info['sex'] == 1:
-            temp['sex'] = 'Жен.'
-        elif info['sex'] == 2:
-            temp['sex'] = 'Муж.'
+        if 'sex' in info:
+            if info['sex'] == 1:
+                temp['sex'] = 'Жен.'
+            elif info['sex'] == 2:
+                temp['sex'] = 'Муж.'
+            elif info['sex'] == 0:
+                temp['sex'] = 'Unknown'
+        else:
+            temp['sex'] = 'Unknown'
         return temp
 
     def get_birth_date(self, temp: dict, info: dict) -> dict:
