@@ -17,6 +17,9 @@ class FriendsReport(Report):
         return temp
 
     def get_sex(self, temp: dict, info: dict) -> dict:
+        # В ходе проверки скрипта на работоспособность был найден
+        # пользователь с идентификатором пола '0', из-за чего пришлось
+        # добавить отдельную проверку для подобных случаев.
         if 'sex' in info:
             if info['sex'] == 1:
                 temp['sex'] = 'Жен.'
