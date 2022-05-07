@@ -21,6 +21,7 @@ def main(access_token, user_id, format_file, path) -> None:
     api = VkApiWrapper(vk)
     report = FriendsReport(api=api)
     data = report.get_data(user_id)
+    data.sort(key=lambda x: x['first_name'])
     writer = object
     if format_file == 'csv':
         writer = WriterCsvTsv(',')

@@ -34,8 +34,7 @@ class FriendsReport(Report):
     def get_data(self, user_id: int):
         data = []
         friends_info = self.api.get_friends_info(user_id)['items']
-        friend_info = (info for info in friends_info)
-        for info in friend_info:
+        for info in friends_info:
             temp = {'first_name': info['first_name'],
                     'last_name': info['last_name']}
             self.get_country(temp, info)
