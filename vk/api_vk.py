@@ -2,7 +2,7 @@ import requests
 
 
 class VkApi:
-    def __init__(self, token: str, version: float):
+    def __init__(self, token: str, version: str):
         self.token = token
         self.version = version
 

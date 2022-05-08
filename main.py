@@ -15,7 +15,7 @@ from writer.writer_csv_tsv import WriterCsvTsv
 @click.option('--path', '-p', type=str,
               default=f'./', help='Path to file.')
 def main(access_token, user_id, format_file, path) -> None:
-    version = 5.131
+    version = '5.131'
     api = VkApi(access_token, version)
     report = FriendsReport(api=api)
     data = report.get_data(user_id)
