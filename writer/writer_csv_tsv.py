@@ -1,3 +1,4 @@
+from typing import Any
 from writer.writer import Writer
 import csv
 
@@ -6,7 +7,7 @@ class WriterCsvTsv(Writer):
     def __init__(self, delimiter: str):
         self.delimiter = delimiter
 
-    def write(self, filename: str, data: dict) -> None:
+    def write(self, filename: str, data: list[dict[str, Any]]) -> None:
         with open(filename, 'w', encoding='utf-8') as file:
             fieldnames = ['first_name', 'last_name', 'country', 'city', 'birth_date', 'sex']
             writer = csv.DictWriter(file, fieldnames=fieldnames, delimiter=self.delimiter)

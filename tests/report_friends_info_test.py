@@ -66,15 +66,3 @@ class FriendsReportTest(TestCase):
             ),
             {'birth_date': 'Unknown'}
         )
-
-    def test_get_data(self):
-        self.assertEqual(self.report.get_data(user_id=1),
-                         [{
-                             'first_name': 'Павел',
-                             'last_name': 'Дуров',
-                             'country': 'Россия',
-                             'city': 'Санкт-Петербург',
-                             'birth_date': '1984.10.10',
-                             'sex': 'Муж.'
-                         }]
-                         )

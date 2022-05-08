@@ -1,3 +1,4 @@
+from typing import Any
 from vk.report import Report
 
 
@@ -17,17 +18,11 @@ class FriendsReport(Report):
         return temp
 
     def get_sex(self, temp: dict, info: dict) -> dict:
-        # В ходе проверки скрипта на работоспособность был найден
-        # пользователь с идентификатором пола '0', из-за чего пришлось
-        # добавить отдельную проверку для подобных случаев.
-        if 'sex' in info:
-            if info['sex'] == 1:
-                temp['sex'] = 'Жен.'
-            elif info['sex'] == 2:
-                temp['sex'] = 'Муж.'
-            elif info['sex'] == 0:
-                temp['sex'] = 'Unknown'
-        else:
+        if info['sex'] == 1:
+            temp['sex'] = 'Жен.'
+        elif info['sex'] == 2:
+            temp['sex'] = 'Муж.'
+        elif info['sex'] == 0:
             temp['sex'] = 'Unknown'
         return temp
 
@@ -39,9 +34,7 @@ class FriendsReport(Report):
             temp['birth_date'] = 'Unknown'
         return temp
 
-    def get_data(self, user_id: int):
-        data = []
-        friends_info = self.api.get_friends_info(user_id)['items']
+    def parse_data(self, data: list, friends_info: list) -> list[dict[str, Any]]:
         for info in friends_info:
             temp = {'first_name': info['first_name'],
                     'last_name': info['last_name']}
@@ -51,3 +44,8 @@ class FriendsReport(Report):
             self.get_sex(temp, info)
             data.append(temp)
         return data
+
+    def get_data(self, user_id: int) -> list[dict[str, Any]]:
+        data = []
+        friends_info = self.api.get_friends_info(user_id)
+        return self.parse_data(data, friends_info)
