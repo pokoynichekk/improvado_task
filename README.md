@@ -1,11 +1,11 @@
 # Запуск скрипта
 Скрипт запускается из терминала:
 
-  python main.py [ACCESS_TOKEN] [USER_ID] [OPTIONS]
+    python main.py [ACCESS_TOKEN] [USER_ID] [OPTIONS]
   
-Для более подробной информации можно воспользоваться командой
+Для более подробной информации можно воспользоваться командой:
 
-  python main.py --help
+    python main.py --help
   
 После выполнения в терминал выведется сообщение:
 
@@ -13,13 +13,12 @@
   
   Options:
   
-    -f, --format_file [csv|tsv|json]
+   -f, --format_file [csv|tsv|json]
+                                     Output file format.
+                                     
+   -p, --path TEXT                   Path to file.
     
-                                      Output file format.
-                                      
-    -p, --path TEXT                   Path to file.
-    
-    --help                            Show this message and exit.
+   --help                            Show this message and exit.
     
 # Получение токена доступа
 Для работы скрипта необходимо получить токен доступа. Сделать это можно на сайте https://vkhost.github.io/
