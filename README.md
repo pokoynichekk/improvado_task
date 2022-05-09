@@ -13,8 +13,7 @@
   
   Options:
   
-   -f, --format_file [csv|tsv|json]
-   
+   -f, --format_file [csv|tsv|json] 
                                      Output file format.
                                      
    -p, --path TEXT                   Path to file.
